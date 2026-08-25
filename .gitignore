@@ -1,0 +1,10 @@
+# IDE
+.idea/
+*.iml
+# OS
+.DS_Store
+# Build output
+target/
+build/
+# Secrets / env
+*.env
