@@ -1,17 +1,25 @@
 server:
-  port: 8081                    # Event service runs on 8081
+  port: 8081
 
 spring:
   application:
     name: event-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/event_db   # its own database (ADR-0002)
+    url: jdbc:postgresql://localhost:5432/event_db
     username: postgres
     password: postgres
   jpa:
     hibernate:
-      ddl-auto: update          # auto-builds tables from entities — MVP only (backlog: Flyway)
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60s
